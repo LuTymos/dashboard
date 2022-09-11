@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$font:'Montserrat', sans-serif;
+$bgcolor-dark: #393E46;
+$bgcolortop-dark: #26282d;
+$bgcolor-white:white;
+$bgcolor-white1:rgb(165, 165, 165);
+$bgcolor-box:#2d3035;
+$roxo-claro: #8616e0;
+$roxo-escuro: #282258;
+$cemh: 100%;
+$cemw: 100%;
+$cinqh: 50%;
+$cinqw: 50%;
+
+@mixin align-icon{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin form {
+    width: 200px;
+    border: none;
+    height: 28px;
+    padding-left: 12px;
+}
+
+*{
+padding:0;
+margin: 0;
+box-sizing: border-box;
+font-family: $font;
+}
+
+.clear{clear: both;}
+
+html,body{
+    background-color: $bgcolor-dark;
+    height: $cemh;
+}
+
+.aside{
+    width: 250px;
+    background-color: $bgcolor-box;
+    height: 100%;
+    float: left;
+    @media screen and (max-width:780px) {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        height: calc(100% - 80px);
+    }
+
+    .aside-top{
+        background-color: $bgcolortop-dark;
+        text-align: center;
+        padding: 28.5px 0;
+        h3{
+            color: $bgcolor-white;
+            span{
+                color: $roxo-claro;
+            }
+        }
+    }
+    .menu{
+        padding: 30px 35px;
+        color: $bgcolor-white;
+        
+        ul{
+            list-style: none;
+            
+            li{
+                color: #717171;
+                margin-bottom: 20px;
+                cursor: pointer;
+                text-transform: uppercase;
+                i{
+                    margin-right: 15px;
+                }
+                a{
+                    color: #717171;
+                    text-decoration: none;
+                }
+                &:hover{
+                    i{color: $roxo-claro; transition: 0.4s;}
+                    a{color: white; transition: 0.4s;}
+                }
+            }
+            
+        }
+    }
+}
+// fim SIDE BAR //////////////////////////////////////
+
+.content{
+    width: calc(100% - 250px);
+    height: 100%;
+    float: left;
+    @media screen and (max-width:780px) {
+        width: 100%;
+    }
+}
+
+header{
+    background-color: $bgcolortop-dark;
+    padding: 25px 30px 25px 20px;
+    height: 80px;
+    @media screen and (max-width:780px) {
+        padding: 25px 50px 25px 20px;
+    }
+
+    .menu-btn{
+        color: $bgcolor-white;
+        background-color: $roxo-escuro;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 8px;
+        float: left;
+        margin-right: 30px;
+        position: relative;
+        i{
+            @include align-icon();
+            font-weight: bold;
+            line-height: 30px;
+            font-size: 18px;
+        }
+        }
+
+    .notify, .msg{
+        color: $bgcolor-white;
+        background-color: $roxo-escuro;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 8px;
+        float: right;
+        margin-right: 15px;
+        position: relative;
+
+        i{
+            @include align-icon();
+            font-weight: bold;
+            line-height: 30px;
+            font-size: 18px;
+        }
+
+        span{
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            border-radius: 5px;
+            display: inline-block;
+            background-color: $roxo-claro;
+            font-size: 12px;
+            padding: 3px;
+        }
+        
+    }
+
+
+    // CAMPO PESQUISA
+    .campo-pesquisa{
+        float: right;
+        display: flex;
+        align-items: center;
+
+
+        .icone-pesquisa{
+            color: $bgcolor-white;
+            background-color: $roxo-escuro;
+            width: 35px;
+            height: 28px;
+            border-radius: 8px 0 0 8px;
+            align-items: center;
+            display: inline-block;
+            cursor: pointer;
+
+            i{
+                @include align-icon()
+            }
+
+            }
+        }
+
+
+        form{
+            display: inline-block;
+            input{
+                @include form();
+                border-radius: 0px 20px 20px 0px;
+                &:focus{
+                    outline:0;
+                }
+            }
+    }
+    // CAMPO PESQUISA
+}
+
+.content1{
+    width: 75%;
+    float: left;
+    height: calc(100% - 80px);
+    padding: 40px;
+    color: $bgcolor-white;
+    overflow-y: auto;
+    @media screen and (max-width:1000px) {
+        width: 100%;
+    }
+
+    .panel:not(first-child){
+        margin-top: 30px;
+        width: 100%;
+        float: left;
+        padding: 40px;
+        border-radius: 20px;
+        background-color: $bgcolor-box;
+        h2{
+            margin-bottom: 15px;
+        }
+        p{
+        text-align: justify;
+        }
+    }
+    &::-webkit-scrollbar{
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: $roxo-claro;
+        width: 10px;
+        border-radius: 5px;
+    }
+
+}
+.att{
+    float: left;
+    width: 25%;
+    background-color: $bgcolor-box;
+    height: calc(100% - 80px);
+    padding: 50px 40px 50px 40px;
+    overflow-y: auto;
+
+    @media screen and (max-width:1000px) {
+        display: none;
+        position: absolute;
+        width: 300px;
+        top: 80px;
+        right: 0;
+        height: calc(100% - 80px);
+    }
+
+    .att-top{
+        color: $bgcolor-white;
+        h2{font-size: 18px;}
+    }
+
+    .att-registro{
+        margin-top: 40px;
+        color: #717171;
+        .att-desc{
+            margin-top: 15px;
+            h3{color: $bgcolor-white; margin-bottom: 5px;}
+            p{
+                color: #d4d4d4;
+            }
+        }
+        
+    }
+    &::-webkit-scrollbar{
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: $roxo-claro;
+        width: 10px;
+        border-radius: 5px;
+    }
+    
+}
