@@ -167,6 +167,7 @@ header{
         float: right;
         display: flex;
         align-items: center;
+        
 
 
         .icone-pesquisa{
@@ -195,7 +196,12 @@ header{
                 &:focus{
                     outline:0;
                 }
+                @media screen and (max-width:780px) {
+                    width: 160px;
+                }
             }
+            
+            
     }
     // CAMPO PESQUISA
 }
